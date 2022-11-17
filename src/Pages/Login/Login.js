@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import login from '../../assets/login.png';
+import { FaGoogle, FaGithubSquare } from 'react-icons/fa';
 
 const Login = () => {
       return (
@@ -33,7 +34,10 @@ const Login = () => {
                                     <hr />
                                     <div>
                                           <h4 className='text-center font-semibold'>Or</h4>
-
+                                          <div className='flex justify-center gap-3'>
+                                                <button className='btn btn-error'><FaGoogle />oogle</button>
+                                                <button className='btn'><FaGithubSquare />Github</button>
+                                          </div>
                                     </div>
                               </div>
                         </div>
