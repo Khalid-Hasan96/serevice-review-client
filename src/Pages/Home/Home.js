@@ -1,10 +1,18 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import banner1 from '../../assets/banner-1.png';
 import banner2 from '../../assets/banner-2.png';
 import banner3 from '../../assets/banner-3.png';
 import banner4 from '../../assets/banner-4.png';
+import Services from '../Services/Services';
 
 const Home = () => {
+      const [services, setServices] = useState([]);
+      useEffect(() => {
+            fetch('http://localhost:5000/services')
+                  .then(res => res.json())
+                  .then(data => setServices(data))
+      }, [])
+
       return (
             <div>
                   <div className="carousel w-full my-10">
@@ -51,6 +59,17 @@ const Home = () => {
                   </div>
                   <div className='my-10'>
                         <h2 className='text-4xl font-semibold text-center'>Services</h2>
+                        <div className='grid grid-cols-1 lg:grid-cols-3 gap-5 mt-4  lg:ml-4'>
+                              {
+                                    services.map(service => <Services
+                                          key={service._id}
+                                          service={service}
+                                    ></Services>)
+                              }
+                        </div>
+                  </div>
+                  <div className='text-center my-10'>
+                        <button className='btn btn-primary'>See All</button>
                   </div>
             </div>
       );

@@ -29,9 +29,6 @@ const Register = () => {
                                                 <span className="label-text">Password</span>
                                           </label>
                                           <input type="password" placeholder="password" className="input input-bordered" required />
-                                          <label className="label">
-                                                <button href="#" className="label-text-alt link link-hover">Forgot password?</button>
-                                          </label>
                                     </div>
                                     <div className="form-control mt-6">
                                           <button className="btn btn-warning">Register</button>
