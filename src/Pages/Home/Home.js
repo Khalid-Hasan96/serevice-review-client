@@ -13,6 +13,9 @@ const Home = () => {
                   .then(data => setServices(data))
       }, [])
 
+      const newServices = services.slice(-3);
+
+
       return (
             <div>
                   <div className="carousel w-full my-10">
@@ -61,7 +64,7 @@ const Home = () => {
                         <h2 className='text-4xl font-semibold text-center'>Services</h2>
                         <div className='grid grid-cols-1 lg:grid-cols-3 gap-5 mt-4  lg:ml-4'>
                               {
-                                    services.map(service => <Services
+                                    newServices.map(service => <Services
                                           key={service._id}
                                           service={service}
                                     ></Services>)
