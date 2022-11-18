@@ -13,11 +13,15 @@ const Login = () => {
       const navigate = useNavigate();
       const location = useLocation();
 
+      const from = location.state?.from?.pathname || '/';
+
       const handleGoogleSignIn = () => {
             const provider = new GoogleAuthProvider();
             providerSignIn(provider)
                   .then(result => {
                         const user = result.user;
+                        setError('');
+                        navigate(from, { replace: true })
 
                   })
                   .catch(err => setError(err.message))
@@ -28,12 +32,27 @@ const Login = () => {
             providerSignIn(provider)
                   .then(result => {
                         const user = result.user;
+                        navigate(from, { replace: true })
 
                   })
                   .catch(err => setError(err.message))
       }
 
-      // console.log(user)
+      const handleSubmit = event => {
+            event.preventDefault();
+            const form = event.target;
+            const email = form.email.value;
+            const password = form.password.value;
+
+            signIn(email, password)
+                  .then(result => {
+                        const user = result.user;
+                        form.reset();
+                        setError('')
+                        navigate(from, { replace: true })
+                  })
+                  .catch(err => setError(err.message))
+      }
       return (
             <div className="bg-gradient-to-r from-blue-500 to-indigo-500 rounded my-10">
                   <div className="flex p-10 lg:justify-around ">
@@ -42,25 +61,30 @@ const Login = () => {
                         </div>
                         <div className="card flex-shrink-0 w-full max-w-sm bg-white bg-opacity-40 backdrop-blur-md rounded drop-shadow-lg">
                               <div className="card-body">
-                                    <div className="form-control">
-                                          <label className="label">
-                                                <span className="label-text">Email</span>
-                                          </label>
-                                          <input type="email" placeholder="email" className="input input-bordered" required />
-                                    </div>
-                                    <div className="form-control">
-                                          <label className="label">
-                                                <span className="label-text">Password</span>
-                                          </label>
-                                          <input type="password" placeholder="password" className="input input-bordered" required />
-                                          <label className="label">
-                                                <button href="#" className="label-text-alt link link-hover">Forgot password?</button>
-                                          </label>
-                                    </div>
-                                    <div className="form-control mt-6">
-                                          <button className="btn btn-primary">Login</button>
-                                          <small className='my-3'>New on Mr. Electric? Please <Link to='/register' className='underline font-bold'>Register</Link></small>
-                                    </div>
+                                    <form onSubmit={handleSubmit}>
+                                          <div className="form-control">
+                                                <label className="label">
+                                                      <span className="label-text">Email</span>
+                                                </label>
+                                                <input type="email" name='email' placeholder="email" className="input input-bordered" required />
+                                          </div>
+                                          <div className="form-control">
+                                                <label className="label">
+                                                      <span className="label-text">Password</span>
+                                                </label>
+                                                <input type="password" name='password' placeholder="password" className="input input-bordered" required />
+                                                <label className="label">
+                                                      <button href="#" className="label-text-alt link link-hover">Forgot password?</button>
+                                                </label>
+                                          </div>
+                                          <div>
+                                                <p className='text-red-500'>{error}</p>
+                                          </div>
+                                          <div className="form-control mt-6">
+                                                <input type="submit" value="Login" className='btn btn-primary' />
+                                                <small className='my-3'>New on Mr. Electric? Please <Link to='/register' className='underline font-bold'>Register</Link></small>
+                                          </div>
+                                    </form>
                                     <hr />
                                     <div>
                                           <h4 className='text-center font-semibold'>Or</h4>
