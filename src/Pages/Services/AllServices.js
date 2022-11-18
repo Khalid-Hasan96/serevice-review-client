@@ -17,7 +17,7 @@ const AllServices = ({ service }) => {
                         <p>Price: <span>${price}</span></p>
                         <div className="card-actions justify-end">
                               <Link to={`/servicesDetails/${_id}`}>
-                                    <button className='btn btn-primary'><span className='mr-2'>Show Details</span><FaArrowRight></FaArrowRight></button>
+                                    <button className='btn btn-primary'><span className='mr-2'>Show Details</span><FaArrowRight className='animate-bounce'></FaArrowRight></button>
                               </Link>
                         </div>
                   </div>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Services = ({ service }) => {
 
@@ -12,7 +13,7 @@ const Services = ({ service }) => {
                         <p>{details.slice(0, 100)}...</p>
                         <p>Price: ${price}</p>
                         <div className="card-actions justify-end">
-                              <button className="btn btn-outline btn-primary">Buy Now</button>
+                              <Link to={`/servicesDetails/${_id}`}><button className="btn btn-outline btn-primary">Show Details</button></Link>
                         </div>
                   </div>
             </div>
