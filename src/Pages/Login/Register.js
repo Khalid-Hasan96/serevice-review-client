@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import register from '../../assets/register.png';
 import { FaGoogle, FaGithubSquare } from 'react-icons/fa';
 import { AuthContext } from '../../context/AuthProvider';
-import { GoogleAuthProvider } from 'firebase/auth';
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 
 const Register = () => {
       const [error, setError] = useState('');
@@ -21,6 +21,20 @@ const Register = () => {
                         setError(err.message);
                   })
       }
+
+      const handleGitHubSignIn = () => {
+            const provider = new GithubAuthProvider();
+            providerSignIn(provider)
+                  .then(result => {
+                        const user = result.user;
+                        setError('')
+                  })
+                  .catch(err => {
+                        setError(err.message);
+                  })
+
+      }
+
       const handleSubmit = event => {
             event.preventDefault();
             const form = event.target;
@@ -94,7 +108,7 @@ const Register = () => {
                                           <h4 className='text-center font-semibold'>Or</h4>
                                           <div className='flex justify-center gap-3'>
                                                 <button onClick={handleGoogleSignIn} className='btn btn-error'><FaGoogle />oogle</button>
-                                                <button className='btn'><FaGithubSquare />Github</button>
+                                                <button onClick={handleGitHubSignIn} className='btn'><FaGithubSquare />Github</button>
                                           </div>
                                     </div>
                               </div>
