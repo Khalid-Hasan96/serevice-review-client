@@ -1,20 +1,36 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import login from '../../assets/login.png';
 import { FaGoogle, FaGithubSquare } from 'react-icons/fa';
 import { AuthContext } from '../../context/AuthProvider';
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 
 
 const Login = () => {
-      const [user, setUser] = useState();
-      const { googleSignIn } = useContext(AuthContext);
+      const [error, setError] = useState('');
+      const { providerSignIn, signIn } = useContext(AuthContext);
+
+      const navigate = useNavigate();
+      const location = useLocation();
+
       const handleGoogleSignIn = () => {
-            googleSignIn()
+            const provider = new GoogleAuthProvider();
+            providerSignIn(provider)
                   .then(result => {
                         const user = result.user;
-                        setUser(user)
+
                   })
-                  .catch(err => console.error(err))
+                  .catch(err => setError(err.message))
+      }
+      const handleGithubSignIn = () => {
+            const provider = new GithubAuthProvider();
+
+            providerSignIn(provider)
+                  .then(result => {
+                        const user = result.user;
+
+                  })
+                  .catch(err => setError(err.message))
       }
 
       // console.log(user)
@@ -50,7 +66,7 @@ const Login = () => {
                                           <h4 className='text-center font-semibold'>Or</h4>
                                           <div className='flex justify-center gap-3'>
                                                 <button onClick={handleGoogleSignIn} className='btn btn-error'><FaGoogle />oogle</button>
-                                                <button className='btn'><FaGithubSquare />Github</button>
+                                                <button onClick={handleGithubSignIn} className='btn'><FaGithubSquare />Github</button>
                                           </div>
                                     </div>
                               </div>
