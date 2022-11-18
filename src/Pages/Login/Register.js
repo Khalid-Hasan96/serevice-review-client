@@ -5,12 +5,12 @@ import { FaGoogle, FaGithubSquare } from 'react-icons/fa';
 
 const Register = () => {
       return (
-            <div className="bg-gradient-to-r from-yellow-300 to-yellow-500 rounded my-10">
+            <div className="bg-gradient-to-r from-yellow-500 to-yellow-300 rounded my-10">
                   <div className="flex p-10 lg:justify-around ">
                         <div className="">
                               <img src={register} alt="" />
                         </div>
-                        <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-yellow-200">
+                        <div className="card flex-shrink-0 w-full max-w-sm bg-white bg-opacity-40 backdrop-blur-md rounded drop-shadow-lg">
                               <div className="card-body">
                                     <div className="form-control">
                                           <label className="label">

@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import login from '../../assets/login.png';
 import { FaGoogle, FaGithubSquare } from 'react-icons/fa';
 
+// bg-white bg-opacity-40 backdrop-blur-md rounded drop-shadow-lg
+// shadow-2xl bg-indigo-400
 const Login = () => {
       return (
             <div className="bg-gradient-to-r from-blue-500 to-indigo-500 rounded my-10">
@@ -10,7 +12,7 @@ const Login = () => {
                         <div className="">
                               <img src={login} alt="" />
                         </div>
-                        <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-indigo-400">
+                        <div className="card flex-shrink-0 w-full max-w-sm bg-white bg-opacity-40 backdrop-blur-md rounded drop-shadow-lg">
                               <div className="card-body">
                                     <div className="form-control">
                                           <label className="label">

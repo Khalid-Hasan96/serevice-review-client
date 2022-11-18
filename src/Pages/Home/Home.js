@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import banner1 from '../../assets/banner-1.png';
 import banner2 from '../../assets/banner-2.png';
 import banner3 from '../../assets/banner-3.png';
@@ -13,7 +14,7 @@ const Home = () => {
                   .then(data => setServices(data))
       }, [])
 
-      const newServices = services.slice(-3);
+      // const newServices = services.slice(-3);
 
 
       return (
@@ -62,9 +63,9 @@ const Home = () => {
                   </div>
                   <div className='my-10'>
                         <h2 className='text-4xl font-semibold text-center'>Services</h2>
-                        <div className='grid grid-cols-1 lg:grid-cols-3 gap-5 mt-4  lg:ml-4'>
+                        <div className='grid grid-cols-1 lg:grid-cols-3 gap-5 mt-4 '>
                               {
-                                    newServices.map(service => <Services
+                                    services.map(service => <Services
                                           key={service._id}
                                           service={service}
                                     ></Services>)
@@ -72,7 +73,7 @@ const Home = () => {
                         </div>
                   </div>
                   <div className='text-center my-10'>
-                        <button className='btn btn-primary'>See All</button>
+                        <Link to='/services'><button className='btn btn-primary'>See All</button></Link>
                   </div>
             </div>
       );
