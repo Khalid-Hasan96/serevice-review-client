@@ -1,11 +1,23 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import login from '../../assets/login.png';
 import { FaGoogle, FaGithubSquare } from 'react-icons/fa';
+import { AuthContext } from '../../context/AuthProvider';
 
-// bg-white bg-opacity-40 backdrop-blur-md rounded drop-shadow-lg
-// shadow-2xl bg-indigo-400
+
 const Login = () => {
+      const [user, setUser] = useState();
+      const { googleSignIn } = useContext(AuthContext);
+      const handleGoogleSignIn = () => {
+            googleSignIn()
+                  .then(result => {
+                        const user = result.user;
+                        setUser(user)
+                  })
+                  .catch(err => console.error(err))
+      }
+
+      // console.log(user)
       return (
             <div className="bg-gradient-to-r from-blue-500 to-indigo-500 rounded my-10">
                   <div className="flex p-10 lg:justify-around ">
@@ -37,7 +49,7 @@ const Login = () => {
                                     <div>
                                           <h4 className='text-center font-semibold'>Or</h4>
                                           <div className='flex justify-center gap-3'>
-                                                <button className='btn btn-error'><FaGoogle />oogle</button>
+                                                <button onClick={handleGoogleSignIn} className='btn btn-error'><FaGoogle />oogle</button>
                                                 <button className='btn'><FaGithubSquare />Github</button>
                                           </div>
                                     </div>

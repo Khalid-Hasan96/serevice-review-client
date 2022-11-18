@@ -7,11 +7,11 @@ import 'react-photo-view/dist/react-photo-view.css';
 const AllServices = ({ service }) => {
       const { _id, img, title, details, price } = service
       return (
-            <div className="card w-96 shadow-xl bg-white bg-opacity-40 backdrop-blur-md drop-shadow-lg">
+            <div className="card shadow-xl bg-white bg-opacity-40 backdrop-blur-md drop-shadow-lg">
                   <figure>
                         <PhotoProvider>
                               <PhotoView src={img}>
-                                    <img className='cursor-pointer' src={img} alt={title} />
+                                    <img className='cursor-pointer sm:w-full' src={img} alt={title} />
                               </PhotoView>
                         </PhotoProvider>
                   </figure>
