@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider';
-import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
-import { InfinitySpin } from 'react-loader-spinner';
+
+
 
 
 const PrivateRoute = ({ children }) => {
@@ -10,10 +10,7 @@ const PrivateRoute = ({ children }) => {
       const location = useLocation();
       if (loading) {
             return <div className='text-center'>
-                  <InfinitySpin
-                        width='200'
-                        color="#808080"
-                  />
+                  Loading.....
             </div>
       }
 
