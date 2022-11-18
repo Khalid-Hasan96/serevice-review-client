@@ -6,6 +6,8 @@ import banner3 from '../../assets/banner-3.png';
 import banner4 from '../../assets/banner-4.png';
 import Services from '../Services/Services';
 
+
+
 const Home = () => {
       const [services, setServices] = useState([]);
       useEffect(() => {
@@ -14,7 +16,6 @@ const Home = () => {
                   .then(data => setServices(data))
       }, [])
 
-      // const newServices = services.slice(-3);
 
 
       return (
@@ -73,7 +74,7 @@ const Home = () => {
                         </div>
                   </div>
                   <div className='text-center my-10'>
-                        <Link to='/services'><button className='btn btn-primary'>See All</button></Link>
+                        <Link to='/services'><button className='btn btn-primary animate-bounce'>See All</button></Link>
                   </div>
             </div>
       );
