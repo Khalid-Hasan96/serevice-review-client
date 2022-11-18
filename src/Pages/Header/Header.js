@@ -1,8 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/logo.png';
+import { AuthContext } from '../../context/AuthProvider';
 
 const Header = () => {
+      const { user, logOut } = useContext(AuthContext);
+      const handleLogOut = () => {
+            logOut()
+                  .then()
+                  .catch()
+      }
+
       return (
             <div className="navbar bg-primary text-primary-content">
                   <div className="navbar-start">
@@ -14,6 +22,13 @@ const Header = () => {
                                     <li><Link to='/'>Home</Link></li>
                                     <li><Link to='/services'>Services</Link></li>
                                     <li><Link to='/blog'>Blog</Link></li>
+                                    {
+                                          user?.uid &&
+                                          <>
+                                                <li><Link>Add Service</Link></li>
+                                                <li><Link>My Reviews</Link></li>
+                                          </>
+                                    }
                               </ul>
                         </div>
                         <div className='flex items-center lg:ml-5'>
@@ -26,10 +41,25 @@ const Header = () => {
                               <li><Link to='/'>Home</Link></li>
                               <li><Link to='/services'>Services</Link></li>
                               <li><Link to='/blog'>Blog</Link></li>
+                              {
+                                    user?.uid &&
+                                    <>
+                                          <li><Link>Add Service</Link></li>
+                                          <li><Link>My Reviews</Link></li>
+                                    </>
+                              }
                         </ul>
                   </div>
                   <div className="navbar-end lg:pr-5">
-                        <Link to='/login' className="btn">Login</Link>
+                        {
+                              user?.uid ?
+                                    <div className='flex items-center'>
+                                          <img src={user?.photoURL} width='30' className='rounded-full lg:mr-2' alt="" />
+                                          <p>{user?.displayName}</p>
+                                          <Link to='/' onClick={handleLogOut} className="btn btn-outline lg:ml-2">Log out</Link>
+                                    </div>
+                                    : <Link to='/login' className="btn">Login</Link>
+                        }
                   </div>
             </div>
       );

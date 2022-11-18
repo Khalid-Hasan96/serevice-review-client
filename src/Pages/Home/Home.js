@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import banner1 from '../../assets/banner-1.png';
 import banner2 from '../../assets/banner-2.png';
 import banner3 from '../../assets/banner-3.png';
 import banner4 from '../../assets/banner-4.png';
+import { AuthContext } from '../../context/AuthProvider';
 import Services from '../Services/Services';
 
 
