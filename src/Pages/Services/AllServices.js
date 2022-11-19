@@ -5,7 +5,7 @@ import { PhotoProvider, PhotoView } from 'react-photo-view';
 import 'react-photo-view/dist/react-photo-view.css';
 
 const AllServices = ({ service }) => {
-      const { _id, img, title, details, price } = service
+      const { _id, img, title, details, price } = service;
       return (
             <div className="card shadow-xl bg-white bg-opacity-40 backdrop-blur-md drop-shadow-lg">
                   <figure>

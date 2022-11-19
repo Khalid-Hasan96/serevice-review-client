@@ -43,7 +43,7 @@ const ServiceDetails = () => {
                   <div className='my-10 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-2xl px-10 py-6'>
                         <h2 className='text-center text-3xl font-bold underline mb-4 text-white'>Reviews</h2>
                         {
-                              reviews.map(serviceReview => <Reviews key={serviceReview._id} serviceReview={serviceReview}></Reviews>)
+                              reviews.map(serviceReview => <Reviews key={serviceReview._id} serviceKey={_id} serviceReview={serviceReview}></Reviews>)
                         }
                   </div>
                   <div className='my-10 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-2xl px-10 py-6'>

@@ -1,37 +1,32 @@
-import React, { useContext } from 'react';
-import { AuthContext } from '../../context/AuthProvider';
+import React, { useEffect, useState } from 'react';
+import ShowReviews from './ShowRevies';
 
 
-const Reviews = ({ serviceReview }) => {
-      const { user } = useContext(AuthContext);
-      const { client, clientImg, serviceId, review } = serviceReview
 
-      return (
-            <div>
+const Reviews = ({ serviceReview, serviceKey }) => {
+      const [reviewData, setReviewData] = useState([]);
+      const { serviceId } = serviceReview;
 
-                  <div className="bg-white bg-opacity-40 backdrop-blur-md drop-shadow-lg text-white rounded-xl mb-5 py-5">
-                        <div className="text-center">
-                              <div>
 
-                                    <p p className='mb-4'>{review}</p>
+      useEffect(() => {
+            fetch(`http://localhost:5000/reviews?serviceId=${serviceId}`)
+                  .then(res => res.json())
+                  .then(data => setReviewData(data))
+      }, [serviceId, serviceKey])
+      if (serviceId === serviceKey) {
+            return (
+                  <div>
+                        {
+                              reviewData.map(review => <ShowReviews
+                                    key={review._id}
+                                    allreview={review}
+                                    serviceKey={serviceKey}
+                              ></ShowReviews>)
+                        }
+                  </div>
+            )
+      }
 
-                                    <div className='flex justify-around items-center'>
-                                          <div className="avatar flex justify-center items-center">
-                                                <div className="w-10 rounded-full">
-                                                      <img src={clientImg} alt="" />
-                                                </div>
-                                                <p className='ml-2'>{client}</p>
-                                          </div>
-
-                                    </div>
-                              </div>
-
-                        </div>
-                  </div >
-
-            </div>
-
-      );
 };
 
 export default Reviews;

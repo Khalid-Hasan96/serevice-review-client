@@ -1,6 +1,8 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const AddService = () => {
       const { user } = useContext(AuthContext);
@@ -32,7 +34,8 @@ const AddService = () => {
                   .then(res => res.json())
                   .then(data => {
                         if (data.acknowledged) {
-                              alert('Service added successfully');
+
+                              toast("Service added successfully");
                               form.reset();
                         }
                   })
@@ -46,18 +49,31 @@ const AddService = () => {
                               {
                                     user?.uid ?
                                           <form onSubmit={handleAddService}>
-                                                <input type="text" className='w-3/4 p-3 border rounded-xl text-black mb-2' name="serviceName" id="" placeholder='Service Name' />
-                                                <input type="text" className='w-3/4 p-3 border rounded-xl text-black mb-2' name="serviceImg" id="" placeholder='Service Image URL' />
-                                                <textarea id="" name='serviceDetails' className='w-3/4 p-3 border rounded-xl text-black' placeholder='Service Details....'></textarea>
-                                                <input type="text" className='w-3/4 p-3 border rounded-xl text-black mb-2' name="servicePrice" id="" placeholder='Service Price' />
+                                                <input type="text" className='w-3/4 p-3 border rounded-xl text-black mb-2' name="serviceName" id="" placeholder='Service Name' required />
+                                                <input type="text" className='w-3/4 p-3 border rounded-xl text-black mb-2' name="serviceImg" id="" placeholder='Service Image URL' required />
+                                                <textarea id="" name='serviceDetails' className='w-3/4 p-3 border rounded-xl text-black' placeholder='Service Details....' required></textarea>
+                                                <input type="text" className='w-3/4 p-3 border rounded-xl text-black mb-2' name="servicePrice" id="" placeholder='Service Price' required />
 
                                                 <br />
                                                 <input type="submit" value="Add Review" className='btn btn-primary' />
+                                                <ToastContainer
+                                                      position="top-right"
+                                                      autoClose={5000}
+                                                      hideProgressBar={false}
+                                                      newestOnTop={false}
+                                                      closeOnClick
+                                                      rtl={false}
+                                                      pauseOnFocusLoss
+                                                      draggable
+                                                      pauseOnHover
+                                                      theme="light"
+                                                />
                                           </form>
                                           :
                                           <p>Please <Link to='/login' className='underline font-semibold'>Login</Link> to add service.</p>
                               }
                         </div>
+
                   </div>
             </div>
       );

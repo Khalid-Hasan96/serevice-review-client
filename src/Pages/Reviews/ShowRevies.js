@@ -1,8 +1,7 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
-const ShowRevies = ({ clientReview, service }) => {
-      const { client, clientImg, serviceId, review } = clientReview;
-
+const ShowRevies = ({ allreview }) => {
+      const { review, client, clientImg } = allreview;
 
       return (
 
@@ -10,7 +9,7 @@ const ShowRevies = ({ clientReview, service }) => {
                   <div className="text-center">
                         <div>
 
-                              <p p className='mb-4'>{review}</p>
+                              <p className='mb-4'>{review}</p>
 
                               <div className='flex justify-around items-center'>
                                     <div className="avatar flex justify-center items-center">
@@ -19,10 +18,7 @@ const ShowRevies = ({ clientReview, service }) => {
                                           </div>
                                           <p className='ml-2'>{client}</p>
                                     </div>
-                                    <div>
-                                          <button className='btn btn-outline btn-success'><small>Edit</small></button>
-                                          <button className='ml-2 btn-outline btn btn-error'><small>Delete</small></button>
-                                    </div>
+
                               </div>
                         </div>
 

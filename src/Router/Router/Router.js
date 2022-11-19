@@ -6,6 +6,7 @@ import Home from "../../Pages/Home/Home";
 import Login from "../../Pages/Login/Login";
 import Register from "../../Pages/Login/Register";
 import MyReviews from "../../Pages/MyReviews/MyReviews";
+import NotFound from "../../Pages/NotFound/NotFound";
 import ServiceDetails from "../../Pages/Services/ServiceDetails";
 import ShowAllServices from "../../Pages/Services/ShowAllServices";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
@@ -51,6 +52,10 @@ const router = createBrowserRouter([
                         element: <PrivateRoute><MyReviews></MyReviews></PrivateRoute>
                   },
             ]
+      },
+      {
+            path: '*',
+            element: <NotFound></NotFound>
       }
 ]);
 
