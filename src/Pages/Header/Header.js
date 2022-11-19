@@ -29,6 +29,15 @@ const Header = () => {
                                                 <li><Link to='/myreviews'>My Reviews</Link></li>
                                           </>
                                     }
+                                    {
+                                          user?.uid ?
+                                                <div className='lg:flex items-center flex-row'>
+                                                      <img src={user?.photoURL} width='30' className='rounded-full lg:mr-2' alt="" />
+                                                      <p>{user?.displayName}</p>
+                                                      <Link to='/' onClick={handleLogOut} className="btn btn-outline lg:ml-2">Log out</Link>
+                                                </div>
+                                                : <Link to='/login' className="btn">Login</Link>
+                                    }
                               </ul>
                         </div>
                         <div className='flex items-center lg:ml-5'>
@@ -36,7 +45,7 @@ const Header = () => {
                               <Link to='/' className="btn btn-ghost normal-case text-3xl font-bold">Mr. Electric</Link>
                         </div>
                   </div>
-                  <div className="navbar-center hidden lg:flex">
+                  <div className="navbar-end hidden lg:flex">
                         <ul className="menu menu-horizontal p-0">
                               <li><Link to='/'>Home</Link></li>
                               <li><Link to='/services'>Services</Link></li>
@@ -48,27 +57,19 @@ const Header = () => {
                                           <li><Link to='/myreviews'>My Reviews</Link></li>
                                     </>
                               }
+                              {
+                                    user?.uid ?
+                                          <div className='flex items-center'>
+                                                <img src={user?.photoURL} width='30' className='rounded-full lg:mr-2' alt="" />
+                                                <p>{user?.displayName}</p>
+                                                <Link to='/' onClick={handleLogOut} className="btn btn-outline lg:ml-2">Log out</Link>
+                                          </div>
+                                          : <Link to='/login' className="btn">Login</Link>
+                              }
+
                         </ul>
                   </div>
-                  {/* 
-                   
-                  */}
-                  <div className="navbar-end lg:pr-5">
-                        {
-                              user?.uid ?
-                                    <div className='flex items-center'>
-                                          <div className="avatar">
-                                                <div className="w-10 rounded-full lg:mr-2">
-                                                      <img src={user?.photoURL} alt="" />
-                                                </div>
 
-                                          </div>
-                                          <p>{user?.displayName}</p>
-                                          <Link to='/' onClick={handleLogOut} className="btn btn-outline lg:ml-2">Log out</Link>
-                                    </div>
-                                    : <Link to='/login' className="btn">Login</Link>
-                        }
-                  </div>
             </div>
       );
 };
