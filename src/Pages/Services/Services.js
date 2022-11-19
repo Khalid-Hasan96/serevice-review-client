@@ -9,7 +9,7 @@ const Services = ({ service }) => {
       const { _id, title, img, details, price } = service;
 
       return (
-            <div className="card card-compact bg-base-100 shadow-xl">
+            <div className="card card-compact shadow-xl bg-white bg-opacity-40 backdrop-blur-md drop-shadow-lg">
                   <figure>
 
                         <PhotoProvider>
@@ -21,7 +21,7 @@ const Services = ({ service }) => {
                   <div className="card-body">
                         <h2 className="card-title">{title}</h2>
                         <p>{details.slice(0, 100)}...</p>
-                        <p>Price: ${price}</p>
+                        <p>Price: $<span className='text-2xl font-bold'>{price}</span></p>
                         <div className="card-actions justify-end">
                               <Link to={`/servicesDetails/${_id}`}><button className='btn btn-primary animate-pulse'>View Details &nbsp;<FaAngleDoubleRight className='animate-bounce'></FaAngleDoubleRight></button></Link>
                         </div>

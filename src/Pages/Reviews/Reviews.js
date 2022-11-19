@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { AuthContext } from '../../context/AuthProvider';
 
 
 const Reviews = ({ serviceReview }) => {
+      const { user } = useContext(AuthContext);
       const { client, clientImg, serviceId, review } = serviceReview
 
       return (
@@ -16,14 +18,11 @@ const Reviews = ({ serviceReview }) => {
                                     <div className='flex justify-around items-center'>
                                           <div className="avatar flex justify-center items-center">
                                                 <div className="w-10 rounded-full">
-                                                      <img src='' alt="" />
+                                                      <img src={clientImg} alt="" />
                                                 </div>
                                                 <p className='ml-2'>{client}</p>
                                           </div>
-                                          <div>
-                                                <button className='btn btn-outline btn-success'><small>Edit</small></button>
-                                                <button className='ml-2 btn-outline btn btn-error'><small>Delete</small></button>
-                                          </div>
+
                                     </div>
                               </div>
 
