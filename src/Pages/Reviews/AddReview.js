@@ -2,18 +2,53 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider';
 
-const AddReview = () => {
+const AddReview = ({ service }) => {
+      const { _id, title } = service;
       const { user } = useContext(AuthContext);
+
+      const handleSubmitReview = event => {
+            event.preventDefault();
+            const form = event.target;
+            const review = form.addReview.value;
+
+            const addReview = {
+                  serviceId: _id,
+                  serviceTitle: title,
+                  clientId: user?.uid,
+                  client: user?.displayName,
+                  clientEmail: user?.email,
+                  clientImg: user?.photoURL,
+                  review,
+
+            }
+            fetch('http://localhost:5000/addreviews', {
+                  method: 'POST',
+                  headers: {
+                        'content-type': 'application/json'
+                  },
+                  body: JSON.stringify(addReview)
+            })
+                  .then(res => res.json())
+                  .then(data => {
+                        console.log(data);
+                        if (data.acknowledged) {
+                              alert(`Review on ${title} service successfully added. Refresh page to see your review. Thank you.`);
+                              form.reset();
+                        }
+                  })
+            console.log(addReview)
+      }
+
       return (
             <div>
                   <h2 className='text-center text-3xl font-bold underline mb-4 text-white'>Add Reviews</h2>
                   <div className="bg-white bg-opacity-40 backdrop-blur-md drop-shadow-lg text-white rounded-xl text-center p-6">
                         {
                               user?.uid ?
-                                    <form>
-                                          <textarea name="" id="" className='w-3/4 p-3 border rounded-xl' placeholder='Review here....'></textarea>
+                                    <form onSubmit={handleSubmitReview}>
+                                          <textarea id="" name='addReview' className='w-3/4 p-3 border rounded-xl text-black' placeholder='Review here....'></textarea>
                                           <br />
-                                          <button className='btn btn-primary'>Submit</button>
+                                          <input type="submit" value="Add Review" className='btn btn-primary' />
                                     </form>
                                     :
                                     <p>Please <Link to='/login' className='underline font-semibold'>Login</Link> to review this service.</p>

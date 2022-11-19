@@ -50,11 +50,19 @@ const Header = () => {
                               }
                         </ul>
                   </div>
+                  {/* 
+                   
+                  */}
                   <div className="navbar-end lg:pr-5">
                         {
                               user?.uid ?
                                     <div className='flex items-center'>
-                                          <img src={user?.photoURL} width='30' className='rounded-full lg:mr-2' alt="" />
+                                          <div className="avatar">
+                                                <div className="w-10 rounded-full lg:mr-2">
+                                                      <img src={user?.photoURL} alt="" />
+                                                </div>
+
+                                          </div>
                                           <p>{user?.displayName}</p>
                                           <Link to='/' onClick={handleLogOut} className="btn btn-outline lg:ml-2">Log out</Link>
                                     </div>

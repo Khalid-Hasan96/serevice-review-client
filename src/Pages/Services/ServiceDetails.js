@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import 'react-photo-view/dist/react-photo-view.css';
@@ -7,8 +7,16 @@ import AddReview from '../Reviews/AddReview';
 
 const ServiceDetails = () => {
       const service = useLoaderData();
+      const { _id, title, img, details, price } = service;
+      const [reviews, setReviews] = useState([]);
+      useEffect(() => {
+            fetch('http://localhost:5000/reviews')
+                  .then(res => res.json())
+                  .then(data => setReviews(data))
+      }, [])
 
-      const { title, img, details, price } = service;
+
+
       return (
             <div>
                   <div className='my-10 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-2xl px-10 py-8'>
@@ -33,10 +41,16 @@ const ServiceDetails = () => {
                         </div>
                   </div>
                   <div className='my-10 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-2xl px-10 py-6'>
-                        <Reviews></Reviews>
+                        <h2 className='text-center text-3xl font-bold underline mb-4 text-white'>Reviews</h2>
+                        {
+                              reviews.map(serviceReview => <Reviews key={serviceReview._id} serviceReview={serviceReview}></Reviews>)
+                        }
                   </div>
                   <div className='my-10 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-2xl px-10 py-6'>
-                        <AddReview></AddReview>
+                        <AddReview
+                              key={_id}
+                              service={service}
+                        ></AddReview>
                   </div>
             </div>
       );
