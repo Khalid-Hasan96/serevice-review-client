@@ -3,8 +3,10 @@ import { FaAngleDoubleRight } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import 'react-photo-view/dist/react-photo-view.css';
+import useTitle from '../../hooks/useTitle';
 
 const AllServices = ({ service }) => {
+      useTitle('Services')
       const { _id, img, title, details, price } = service;
       return (
             <div className="card shadow-xl bg-white bg-opacity-40 backdrop-blur-md drop-shadow-lg">

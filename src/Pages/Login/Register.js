@@ -4,10 +4,13 @@ import register from '../../assets/register.png';
 import { FaGoogle, FaGithubSquare } from 'react-icons/fa';
 import { AuthContext } from '../../context/AuthProvider';
 import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
+import useTitle from '../../hooks/useTitle';
 
 const Register = () => {
       const [error, setError] = useState('');
       const { providerSignIn, createUser, updateUserProfile } = useContext(AuthContext);
+
+      useTitle('Register')
 
       const handleGoogleSignIn = () => {
             const provider = new GoogleAuthProvider();

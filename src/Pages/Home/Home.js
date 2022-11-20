@@ -10,10 +10,12 @@ import appointment from '../../assets/appointment.jpg';
 import guarantee from '../../assets/guarantee.png';
 import service247 from '../../assets/247.png';
 import insured from '../../assets/insured.png';
+import useTitle from '../../hooks/useTitle';
 
 
 
 const Home = () => {
+      useTitle('Home')
       const [services, setServices] = useState([]);
       useEffect(() => {
             fetch('http://localhost:5000/services')
