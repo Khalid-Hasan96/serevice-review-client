@@ -26,7 +26,7 @@ const AddService = () => {
                   clientEmail: user?.email,
                   clientImg: user?.photoURL
             }
-            fetch('http://localhost:5000/services', {
+            fetch('https://service-review-server-six-phi.vercel.app/services', {
                   method: 'POST',
                   headers: {
                         'content-type': 'application/json'

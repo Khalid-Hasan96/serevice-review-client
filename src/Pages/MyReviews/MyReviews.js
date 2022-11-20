@@ -10,13 +10,13 @@ const MyReviews = () => {
       const { user } = useContext(AuthContext);
       const [myReviews, setMyReviews] = useState([]);
       useEffect(() => {
-            fetch(`http://localhost:5000/clientreviews?clientEmail=${user?.email}`)
+            fetch(`https://service-review-server-six-phi.vercel.app/clientreviews?clientEmail=${user?.email}`)
                   .then(res => res.json())
                   .then(data => setMyReviews(data))
       }, [user?.email])
 
       const handleDelete = (id) => {
-            fetch(`http://localhost:5000/reviews/${id}`, {
+            fetch(`https://service-review-server-six-phi.vercel.app/reviews/${id}`, {
                   method: 'DELETE',
             })
                   .then(res => res.json())
@@ -30,7 +30,7 @@ const MyReviews = () => {
       }
 
       const handleUpdate = id => {
-            fetch(`http://localhost:5000/reviews/${id}`, {
+            fetch(`https://service-review-server-six-phi.vercel.app/reviews/${id}`, {
                   method: 'PATCH',
                   headers: {
                         'content-type': 'application/json'

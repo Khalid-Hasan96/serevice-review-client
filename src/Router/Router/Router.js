@@ -28,12 +28,12 @@ const router = createBrowserRouter([
                   {
                         path: '/services',
                         element: <ShowAllServices></ShowAllServices>,
-                        loader: () => fetch('http://localhost:5000/allServices')
+                        loader: () => fetch('https://service-review-server-six-phi.vercel.app/allServices')
                   },
                   {
                         path: '/servicesDetails/:id',
                         element: <ServiceDetails></ServiceDetails>,
-                        loader: ({ params }) => fetch(`http://localhost:5000/serviceDetails/${params.id}`)
+                        loader: ({ params }) => fetch(`https://service-review-server-six-phi.vercel.app/serviceDetails/${params.id}`)
                   },
                   {
                         path: '/login',
