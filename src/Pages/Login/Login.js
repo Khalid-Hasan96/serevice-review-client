@@ -57,12 +57,12 @@ const Login = () => {
                   .catch(err => setError(err.message))
       }
       return (
-            <div className="bg-gradient-to-r from-blue-500 to-indigo-500 rounded my-10">
+            <div className="rounded my-10">
                   <div className="flex p-10 lg:justify-around ">
                         <div className="">
                               <img src={login} alt="" />
                         </div>
-                        <div className="card flex-shrink-0 w-full max-w-sm bg-white bg-opacity-40 backdrop-blur-md rounded drop-shadow-lg">
+                        <div className="card flex-shrink-0 w-full max-w-sm bg-indigo-400 bg-opacity-40 backdrop-blur-md rounded drop-shadow-lg">
                               <div className="card-body">
                                     <form onSubmit={handleSubmit}>
                                           <div className="form-control">

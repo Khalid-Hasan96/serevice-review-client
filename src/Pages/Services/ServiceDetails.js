@@ -20,7 +20,7 @@ const ServiceDetails = () => {
       return (
             <div>
                   <div className='mt-10 rounded-2xl w-2/3 mx-auto'>
-                        <h2 className='text-center text-3xl font-bold underline mb-4'>Service Details</h2>
+                        <h2 className='text-center text-3xl font-bold mb-4'>Service Details</h2>
                         <div className="bg-indigo-500 bg-opacity-40 drop-shadow-lg  rounded-xl p-5">
                               <div>
 
