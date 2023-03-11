@@ -19,9 +19,9 @@ const ServiceDetails = () => {
 
       return (
             <div>
-                  <div className='my-10 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-2xl px-10 py-8'>
-                        <h2 className='text-center text-3xl font-bold underline mb-4 text-white'>Service Details</h2>
-                        <div className="bg-white bg-opacity-40 backdrop-blur-md drop-shadow-lg text-white rounded-xl p-5">
+                  <div className='mt-10 rounded-2xl w-2/3 mx-auto'>
+                        <h2 className='text-center text-3xl font-bold underline mb-4'>Service Details</h2>
+                        <div className="bg-indigo-500 bg-opacity-40 drop-shadow-lg  rounded-xl p-5">
                               <div>
 
                                     <figure>
@@ -40,13 +40,13 @@ const ServiceDetails = () => {
                               </div>
                         </div>
                   </div>
-                  <div className='my-10 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-2xl px-10 py-6'>
-                        <h2 className='text-center text-3xl font-bold underline mb-4 text-white'>Reviews</h2>
+                  <div className='rounded-2xl  w-2/3 mx-auto'>
+                        <h2 className='text-2xl mt-2 font-bold'>Reviews</h2>
                         {
                               reviews.map(serviceReview => <Reviews key={serviceReview._id} serviceKey={_id} serviceReview={serviceReview}></Reviews>)
                         }
                   </div>
-                  <div className='my-10 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-2xl px-10 py-6'>
+                  <div className='mb-10 w-2/3 mx-auto'>
                         <AddReview
                               key={_id}
                               service={service}

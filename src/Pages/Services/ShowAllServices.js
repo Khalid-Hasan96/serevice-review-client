@@ -8,7 +8,7 @@ const ShowAllServices = () => {
       return (
             <div className='my-10'>
                   <h1 className='text-center text-4xl font-bold mb-5'>Choose what you want...</h1>
-                  <div className='grid grid-cols-1 gap-6 lg:grid-cols-3 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-2xl p-10'>
+                  <div className='grid grid-cols-1 gap-6 lg:grid-cols-3 rounded-2xl p-10'>
                         {
                               services.map(service => <AllServices
                                     key={service._id}

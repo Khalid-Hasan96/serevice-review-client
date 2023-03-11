@@ -5,11 +5,11 @@ const ShowRevies = ({ allreview }) => {
 
       return (
 
-            <div className="bg-white bg-opacity-40 backdrop-blur-md drop-shadow-lg text-white rounded-xl mb-5 py-5">
+            <div className="bg-orange-400 bg-opacity-40 backdrop-blur-md drop-shadow-lg text-white rounded-xl mb-5 py-5">
                   <div className="text-center">
                         <div>
 
-                              <p className='mb-4'>{review}</p>
+                              <p className='mb-4 text-xl'>{review}</p>
 
                               <div className='flex justify-around items-center'>
                                     <div className="avatar flex justify-center items-center">

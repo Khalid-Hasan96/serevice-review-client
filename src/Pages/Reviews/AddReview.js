@@ -41,14 +41,14 @@ const AddReview = ({ service }) => {
 
       return (
             <div>
-                  <h2 className='text-center text-3xl font-bold underline mb-4 text-white'>Add Reviews</h2>
-                  <div className="bg-white bg-opacity-40 backdrop-blur-md drop-shadow-lg text-white rounded-xl text-center p-6">
+                  <h2 className='text-2xl font-bold'>Add Reviews</h2>
+                  <div className="bg-green-400 bg-opacity-40 backdrop-blur-md drop-shadow-lg text-white rounded-xl text-center p-6">
                         {
                               user?.uid ?
                                     <form onSubmit={handleSubmitReview}>
                                           <textarea id="" name='addReview' className='w-3/4 p-3 border rounded-xl text-black' placeholder='Review here....'></textarea>
                                           <br />
-                                          <input type="submit" value="Add Review" className='btn btn-primary' />
+                                          <input type="submit" value="Add Review" className='btn btn-success hover:bg-green-500 ease-in duration-300' />
                                     </form>
                                     :
                                     <p>Please <Link to='/login' className='underline font-semibold'>Login</Link> to review this service.</p>
