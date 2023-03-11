@@ -8,7 +8,7 @@ const ShowMyReviews = ({ myReview, handleDelete, handleUpdate }) => {
       console.log(review)
       return (
             <div>
-                  <div className="bg-white bg-opacity-40 backdrop-blur-md drop-shadow-lg text-white rounded-xl mb-5 py-5">
+                  <div className="bg-indigo-400 bg-opacity-40 backdrop-blur-md drop-shadow-lg rounded-xl mb-5 py-5">
                         <div className="text-center">
 
                               <p>Service Name: <span className='text-2xl'>{serviceTitle}</span></p>

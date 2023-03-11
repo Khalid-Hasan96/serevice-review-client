@@ -45,9 +45,9 @@ const AddService = () => {
 
       return (
             <div>
-                  <div className='my-10 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-2xl px-10 py-8'>
-                        <h2 className='text-center text-3xl font-bold underline mb-4 text-white'>Add Service</h2>
-                        <div className="bg-white bg-opacity-40 backdrop-blur-md drop-shadow-lg text-white rounded-xl text-center p-6">
+                  <div className='my-10  rounded-2xl  w-2/3 mx-auto'>
+                        <h2 className='text-center text-3xl font-bold mb-4 '>Add Service</h2>
+                        <div className="bg-green-400 bg-opacity-40 backdrop-blur-md drop-shadow-lg rounded-xl text-center p-6">
                               {
                                     user?.uid ?
                                           <form onSubmit={handleAddService}>
@@ -57,7 +57,7 @@ const AddService = () => {
                                                 <input type="text" className='w-3/4 p-3 border rounded-xl text-black mb-2' name="servicePrice" id="" placeholder='Service Price' required />
 
                                                 <br />
-                                                <input type="submit" value="Add Review" className='btn btn-primary' />
+                                                <input type="submit" value="Add Review" className='btn btn-success' />
                                                 <ToastContainer
                                                       position="top-right"
                                                       autoClose={5000}

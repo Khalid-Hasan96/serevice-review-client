@@ -55,7 +55,7 @@ const MyReviews = () => {
 
       console.log(myReviews)
       return (
-            <div className='my-10 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-2xl p-10 text-center'>
+            <div className='my-10 w-2/3 mx-auto rounded-2xl text-center'>
                   <h2 className='text-center text-4xl font-bold mb-5'>My Reviews</h2>
                   {
                         myReviews.map(myReview => <ShowMyReviews
