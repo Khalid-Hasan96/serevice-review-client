@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import footerLogo from '../../assets/logo.png'
 
 const Footer = () => {
@@ -7,14 +8,14 @@ const Footer = () => {
                   <footer className="footer p-10 bg-primary text-white">
                         <div>
                               <img src={footerLogo} width="50" height="50" alt="" />
-                              <p>Mr. Electric<br />Providing services since 2022</p>
+                              <p>Mr. Electric<br />Providing services since 2020</p>
                         </div>
                         <div>
                               <span className="footer-title">Services</span>
-                              <a className="link link-hover">Branding</a>
-                              <a className="link link-hover">Design</a>
-                              <a className="link link-hover">Marketing</a>
-                              <a className="link link-hover">Advertisement</a>
+                              <Link to='/servicesDetails/637672d62098bdb098a6c263' className="link link-hover">Wiring</Link>
+                              <Link to='/servicesDetails/637672d62098bdb098a6c264' className="link link-hover">Troubleshoot</Link>
+                              <Link to='/servicesDetails/637672d62098bdb098a6c265' className="link link-hover">Install Appliances</Link>
+                              <Link to='/servicesDetails/637672d62098bdb098a6c267' className="link link-hover">Maintenance System</Link>
                         </div>
                         <div>
                               <span className="footer-title">Company</span>
