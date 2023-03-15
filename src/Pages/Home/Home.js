@@ -9,6 +9,7 @@ import FAQ from './FAQ/FAQ';
 import { FaArrowAltCircleRight } from 'react-icons/fa';
 import AdditionalServices from './AdditionalServices/AdditionalServices';
 import Sponsors from './Sponsors/Sponsors';
+import Advertisement from './Advertisement/Advertisement';
 
 
 
@@ -31,7 +32,7 @@ const Home = () => {
                   <ServiceFeatures></ServiceFeatures>
                   <FAQ></FAQ>
                   <Sponsors></Sponsors>
-
+                  <Advertisement></Advertisement>
 
 
             </div>
