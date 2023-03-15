@@ -8,6 +8,7 @@ import ServiceFeatures from './ServiceFeatures/ServiceFeatures';
 import FAQ from './FAQ/FAQ';
 import { FaArrowAltCircleRight } from 'react-icons/fa';
 import AdditionalServices from './AdditionalServices/AdditionalServices';
+import Sponsors from './Sponsors/Sponsors';
 
 
 
@@ -29,6 +30,7 @@ const Home = () => {
                   <AppointmentSection></AppointmentSection>
                   <ServiceFeatures></ServiceFeatures>
                   <FAQ></FAQ>
+                  <Sponsors></Sponsors>
 
 
 
